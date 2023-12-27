@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Payment Status Update {% endblock %}</h1>
+    <form action="{{ url_for('paystatus', id = cargo.id) }}" method="post">
+        Order ID : <b> 100{{ cargo.id }}</b>
+        <label for="payment_status">Payment completed.?</label>
+            <select id="payment_status" name="payment_status">
+                <option value = "">--Select--</option>
+                <option value = "True">Yes</option>
+                <option value = "False">No</option>
+            </select>
+        <button class="btn btn-warning" role="button" type="submit" onclick="return Validate();">Submit</button>
+    </form>
+    <script>
+        function Validate() {
+          var payment_status = document.getElementById("payment_status").value;
+          if (payment_status === "") {
+            alert("Please select an option.");
+            return false;
+          }
+          return true;
+        }
+    </script>
+{% endblock %}  

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Cargo Shipping Company {% endblock %}</h1>
+    <h2><b>About Us:</b></h2>
+    <p>Welcome to our company. We provide cargo shipping service between <b>Chennai, trichy, Madurai, Salem</b> and <b>Pondichery</b> at <b>reasonable prices</b>. Create an order right away by clicking below.!</p>
+    <h2><b>Services:</b></h2>
+
+    <a href = "{{ url_for('create') }}" class="btn btn-primary btn-sm" role="button">Create Order</a>
+    <br><br><p> More Services Coming Soon...</p>
+{% endblock %}  
+    

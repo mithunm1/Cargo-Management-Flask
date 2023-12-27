@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<h1>Remove Order</h1>
+<form method="post">
+    Are you sure you want to remove the order details of order id:<b> 100{{ cargo.id }}</b> ?
+    <input type="hidden" name="candelete" value="yes"/>
+    <input class="btn btn-danger" role="button" type="submit" value="Delete" />
+</form>
+
+{% endblock %}

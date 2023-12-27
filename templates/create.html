@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+    <h1>{% block title %} Creating New Order {% endblock %}</h1>
+    <form method="POST" onsubmit="return Validate(event)">
+        <h3>Enter Sender Details</h3>
+        <p>
+            <label for="sender_name"><b>Name</b></label>
+            <input type="text" name="sender_name" placeholder="Sender name">
+            </input>
+        </p>
+        <p>
+            <label for="sender_number"><b>Number</b></label>
+            <input type="text" name="sender_number" pattern="[0-9]{10}" placeholder="Sender Phone Number">
+            </input>
+        </p>        
+        <h3>Enter Receiver Details</h3>
+        <p>
+            <label for="receiver_name"><b>Name</b></label>
+            <input type="text" name="receiver_name" placeholder="Receiver Name">
+            </input>
+        </p>
+        <p>
+            <label for="receiver_number"><b>Number</b></label>
+            <input type="text" name="receiver_number" pattern="[0-9]{10}" placeholder="Receiver Phone Number">
+            </input>
+        </p>
+        <h3>Enter Shipment Details</h3>
+        <p>
+            <label for="item_name"><b>Item Name</b></label>
+            <input type="text" name="item_name" placeholder="Name of the Product">
+            </input>
+        </p>
+        <p>
+            <label for="item_weight"><b>Item Weight</b></label>
+            <input type="text" pattern="[0-9]+" name="item_weight" placeholder="Weight in Kg's">
+            </input>
+        </p>
+        <p>
+            <label for="sender_loc"><b>From</b></label>
+            <select id="sender_loc" name="sender_loc">
+                <option value = "">--Source City--</option>
+                <option value = "Chennai">Chennai</option>
+                <option value = "Trichy">Trichy</option>
+                <option value = "Salem">Salem</option>
+                <option value = "Madurai">Madurai</option>
+                <option value = "Pondichery">Pondichery</option>
+            </select>
+            <label for="receiver_loc"><b> - To</b></label>
+            <select id="receiver_loc" name="receiver_loc">
+                <option value = "">--Destination City--</option>
+                <option value = "Chennai">Chennai</option>
+                <option value = "Trichy">Trichy</option>
+                <option value = "Salem">Salem</option>
+                <option value = "Madurai">Madurai</option>
+                <option value = "Pondichery">Pondichery</option>
+            </select>
+        </p>
+        <p>
+        <button class="btn btn-success" type="submit">Submit</button>
+        </p>
+    </form>
+    <script>
+        function Validate(event) {
+            
+            var Sloc = document.getElementById("sender_loc").value;
+            var Rloc = document.getElementById("receiver_loc").value;
+
+            if ((Sloc === "") || (Rloc === "") ) {
+                event.preventDefault();
+                alert("Please select your city!");
+                
+            } else if(Rloc === Sloc){
+                event.preventDefault();
+                alert("Both Cities can not be the same.");
+                
+            } else {
+                document.getElementById("form").submit();
+                return true;
+            }
+        }
+    </script>
+    
+{% endblock %} 

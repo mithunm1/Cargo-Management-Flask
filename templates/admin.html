@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Cargo Management {% endblock %}</h1>
+    {%with messages = get_flashed_messages()%}
+    {%if messages%}
+    {% for message in messages %}
+    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{message}}
+    </div>
+    {%endfor%}
+    {%endif%}
+    {%endwith%}    
+    <form method = "post">
+        <h3>Enter Admin Login Details</h3>
+        <p>
+            <label for="username"><b>Username :</b></label>
+            <input type="text" name="username" placeholder="Admin Username">
+            </input>
+        </p>
+        <p>
+            <label for="passsword"><b>Password :</b></label>
+            <input type="password" name="password" placeholder="Admin Password">
+            </input>
+        </p>
+        <p>
+            <button class="btn btn-success" type="submit">Login</button>
+        </p>
+    </form>    
+{% endblock %}  

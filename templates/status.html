@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Delivery Status Update {% endblock %}</h1>
+    <form action="{{ url_for('status', id = cargo.id) }}" method="post">
+        Order ID : <b> 100{{ cargo.id }}</b>
+        <label for="delivered">Product delivered.?</label>
+            <select id="delivered" name="delivered">
+                <option value = "">--Select--</option>
+                <option value = "True">Yes</option>
+                <option value = "False">No</option>
+            </select>
+        <button class="btn btn-warning" role="button" type="submit" onclick="return Validate();">Submit</button>
+    </form>
+    <script>
+        function Validate() {
+          var delivered = document.getElementById("delivered").value;
+          if (delivered === "") {
+            alert("Please select an option.");
+            return false;
+          }
+          return true;
+        }
+    </script>
+{% endblock %}  

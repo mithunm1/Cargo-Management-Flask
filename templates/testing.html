@@ -1,0 +1,26 @@
+<form>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <span class="password-icon" onclick="showPassword()">👁️</span>
+  </form>
+  
+  <style>
+    .password-icon {
+      cursor: pointer;
+    }
+  </style>
+  
+  <script>
+    function showPassword() {
+      var passwordInput = document.getElementById("password");
+      var type = passwordInput.getAttribute("type");
+      if (type === "password") {
+        passwordInput.setAttribute("type", "text");
+      } else {
+        passwordInput.setAttribute("type", "password");
+      }
+    }
+  </script>
+  
+  
+  
